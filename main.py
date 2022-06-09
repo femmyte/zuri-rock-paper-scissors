@@ -13,11 +13,10 @@ def printDelay(message):
 def playerMove():
     player = input('Choose from the option to play \n "R" '
                    'for "rock", "P" for "paper", "S" for "scissors"').upper()
-    # if player in option:
-    #     print(player)
-    # else:
-    #     print('Invalid movement, try again')
-    #     playerMove()
+    if player not in option:
+        print('Invalid movement, try again')
+        # playerMove()
+        init()
     return player
 
 
@@ -39,20 +38,12 @@ def score(player, computer):
             (player == 'S' and computer == 'S') or
             (player == 'P' and computer == 'P')):
         print("** TIE **")
+        init()
 
 
 def init():
-    player = playerMove()
-    while player not in option:
-        print('Invalid movement, try again')
-        playerMove()
-        continue
-
-    print(player)
     computer = computerMove()
-    score(player, computer)
-    # if player in option:
-    # else:
+    score(playerMove(), computer)
 
 
 init()
